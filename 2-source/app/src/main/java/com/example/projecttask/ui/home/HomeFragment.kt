@@ -8,6 +8,7 @@ import android.widget.TextView
 import android.support.v4.app.Fragment
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProvider
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.projecttask.R
 import com.example.projecttask.databinding.FragmentHomeBinding
@@ -32,9 +33,17 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        //Text view
         val textView: TextView = binding.textHome
         textView.setOnClickListener {
             findNavController().navigate(R.id.action_navigation_home_to_loginFragment)
+        }
+
+        //Button login
+        binding.btnLogin.setOnClickListener{
+            val message = "Test button login"
+            Toast.makeText(this.context,message,Toast.LENGTH_LONG).show()
+
         }
         loginViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
