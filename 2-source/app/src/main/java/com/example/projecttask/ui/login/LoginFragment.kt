@@ -8,14 +8,12 @@ import android.widget.TextView
 import android.support.v4.app.Fragment
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
-import com.example.projecttask.R
-import com.example.projecttask.databinding.FragmentHomeBinding
+import com.example.projecttask.databinding.FragmentLoginBinding
 
-class HomeFragment : Fragment() {
+class LoginFragment : Fragment() {
 
-    private lateinit var loginViewModel: TaskListViewModel
-    private var _binding: FragmentHomeBinding? = null
+    private lateinit var loginViewModel: LoginViewModel
+    private var _binding: FragmentLoginBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -27,18 +25,14 @@ class HomeFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
         loginViewModel =
-                ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(TaskListViewModel::class.java)
+                ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(LoginViewModel::class.java)
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentLoginBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textHome
-        textView.setOnClickListener {
-            findNavController().navigate(R.id.action_navigation_home_to_loginFragment)
-        }
         loginViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
-            findNavController().navigate(R.id.action_navigation_home_to_loginFragment)
         })
         return root
     }

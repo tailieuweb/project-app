@@ -8,11 +8,9 @@ import android.widget.TextView
 import android.support.v4.app.Fragment
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
-import com.example.projecttask.R
 import com.example.projecttask.databinding.FragmentHomeBinding
 
-class HomeFragment : Fragment() {
+class TaskDetailFragment : Fragment() {
 
     private lateinit var loginViewModel: TaskListViewModel
     private var _binding: FragmentHomeBinding? = null
@@ -33,12 +31,8 @@ class HomeFragment : Fragment() {
         val root: View = binding.root
 
         val textView: TextView = binding.textHome
-        textView.setOnClickListener {
-            findNavController().navigate(R.id.action_navigation_home_to_loginFragment)
-        }
         loginViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
-            findNavController().navigate(R.id.action_navigation_home_to_loginFragment)
         })
         return root
     }
