@@ -9,11 +9,12 @@ import android.support.v4.app.Fragment
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProvider
 import com.example.projecttask.databinding.FragmentHomeBinding
+import com.example.projecttask.databinding.FragmentTaskDetailBinding
 
 class TaskDetailFragment : Fragment() {
 
-    private lateinit var loginViewModel: TaskListViewModel
-    private var _binding: FragmentHomeBinding? = null
+    private lateinit var loginViewModel: TaskDetailViewModel
+    private var _binding: FragmentTaskDetailBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -25,15 +26,15 @@ class TaskDetailFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
         loginViewModel =
-                ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(TaskListViewModel::class.java)
+                ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(TaskDetailViewModel::class.java)
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentTaskDetailBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textHome
-        loginViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
+//        val textView: TextView = binding.textHome
+//        loginViewModel.text.observe(viewLifecycleOwner, Observer {
+//            textView.text = it
+//        })
         return root
     }
 

@@ -8,12 +8,13 @@ import android.widget.TextView
 import android.support.v4.app.Fragment
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProvider
-import com.example.projecttask.databinding.FragmentLoginBinding
+import com.example.projecttask.databinding.FragmentHomeBinding
+import com.example.projecttask.databinding.FragmentTaskConfirmBinding
 
-class LoginFragment : Fragment() {
+class TaskConfirmFragment : Fragment() {
 
-    private lateinit var loginViewModel: LoginViewModel
-    private var _binding: FragmentLoginBinding? = null
+    private lateinit var loginViewModel: TaskConfirmViewModel
+    private var _binding: FragmentTaskConfirmBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -25,11 +26,15 @@ class LoginFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
         loginViewModel =
-                ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(LoginViewModel::class.java)
+                ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(TaskConfirmViewModel::class.java)
 
-        _binding = FragmentLoginBinding.inflate(inflater, container, false)
+        _binding = FragmentTaskConfirmBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+//        val textView: TextView = binding.textHome
+//        loginViewModel.text.observe(viewLifecycleOwner, Observer {
+//            textView.text = it
+//        })
         return root
     }
 

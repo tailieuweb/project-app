@@ -8,12 +8,13 @@ import android.widget.TextView
 import android.support.v4.app.Fragment
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProvider
+import com.example.projecttask.databinding.FragmentForgotPasswordBinding
 import com.example.projecttask.databinding.FragmentLoginBinding
 
-class LoginFragment : Fragment() {
+class ForgotPasswordFragment : Fragment() {
 
-    private lateinit var loginViewModel: LoginViewModel
-    private var _binding: FragmentLoginBinding? = null
+    private lateinit var forgotPasswordViewModel: ForgotPasswordViewModel
+    private var _binding: FragmentForgotPasswordBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -24,12 +25,16 @@ class LoginFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        loginViewModel =
-                ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(LoginViewModel::class.java)
+        forgotPasswordViewModel =
+                ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(ForgotPasswordViewModel::class.java)
 
-        _binding = FragmentLoginBinding.inflate(inflater, container, false)
+        _binding = FragmentForgotPasswordBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+//        val textView: TextView = binding.textHome
+//        loginViewModel.text.observe(viewLifecycleOwner, Observer {
+//            textView.text = it
+//        })
         return root
     }
 
