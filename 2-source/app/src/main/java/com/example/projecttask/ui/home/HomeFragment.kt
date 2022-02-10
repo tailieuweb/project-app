@@ -15,7 +15,7 @@ import com.example.projecttask.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
 
-    private lateinit var loginViewModel: TaskListViewModel
+    private lateinit var homeViewModel: HomeViewModel
     private var _binding: FragmentHomeBinding? = null
 
     // This property is only valid between onCreateView and
@@ -27,8 +27,8 @@ class HomeFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        loginViewModel =
-                ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(TaskListViewModel::class.java)
+        homeViewModel =
+                ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(HomeViewModel::class.java)
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -40,12 +40,12 @@ class HomeFragment : Fragment() {
         }
 
         //Button login
-        binding.btnLogin.setOnClickListener{
-            val message = "Test button login"
-            Toast.makeText(this.context,message,Toast.LENGTH_LONG).show()
-
-        }
-        loginViewModel.text.observe(viewLifecycleOwner, Observer {
+//        binding.button.setOnClickListener{
+//            val message = "Test button login"
+//            Toast.makeText(this.context,message,Toast.LENGTH_LONG).show()
+//
+//        }
+        homeViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
             findNavController().navigate(R.id.action_navigation_home_to_loginFragment)
         })
