@@ -18,3 +18,14 @@ buildscript {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+ext {
+    compileSdk_version = 30
+    targetSdk_version = 30
+    minSdk_version = 24
+    buildTools_version = '30.0.3'
+
+    dagger_version = '2.40.5'
+    retrofit_version = '2.5.0'
+    okhttp_version = '4.9.1'
+}
