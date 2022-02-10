@@ -28,4 +28,5 @@ ext {
     dagger_version = '2.40.5'
     retrofit_version = '2.5.0'
     okhttp_version = '4.9.1'
+    lifecycle_version = '2.4.0-alpha02'
 }
