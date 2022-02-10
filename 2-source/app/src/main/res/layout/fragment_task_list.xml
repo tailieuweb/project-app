@@ -65,4 +65,20 @@
         android:text="Filter"
         tools:layout_editor_absoluteX="307dp"
         tools:layout_editor_absoluteY="177dp" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Đến ngày"
+        tools:layout_editor_absoluteX="217dp"
+        tools:layout_editor_absoluteY="177dp" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Từ ngày"
+        tools:layout_editor_absoluteX="147dp"
+        tools:layout_editor_absoluteY="172dp" />
 </android.support.constraint.ConstraintLayout>
