@@ -11,6 +11,10 @@ class MyDatabase @Inject constructor(){
     fun getUser(): UserModel? {
         val realm = Realm.getDefaultInstance()
         val user = realm.where(UserModel::class.java).findFirst()
-        return  realm.copyFromRealm(user)
+        if (user != null) {
+            return  realm.copyFromRealm(user)
+        }
+
+        return  null
     }
 }

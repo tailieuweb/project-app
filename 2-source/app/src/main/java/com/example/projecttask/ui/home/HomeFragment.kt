@@ -30,13 +30,18 @@ class HomeFragment : BaseFragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-
         homeViewModel.requireLogin.observe(viewLifecycleOwner, Observer {
             if (it == true) {
                 findNavController().navigate(R.id.action_navigation_home_to_loginFragment)
             }
         })
         return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        homeViewModel.getUserInfo()
     }
 
     override fun onDestroyView() {

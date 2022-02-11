@@ -1,6 +1,7 @@
 package com.example.projecttask.di
 
 import com.example.projecttask.App
+import com.example.projecttask.ui.BaseFragment
 import dagger.Component
 import javax.inject.Singleton
 
@@ -13,5 +14,5 @@ import javax.inject.Singleton
 @Singleton
 interface AppComponent {
     fun inject(app: App)
-    fun inject(BaseFragment)
+    fun inject(into: BaseFragment)
 }

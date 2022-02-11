@@ -13,20 +13,13 @@ class HomeViewModel constructor(private val app: Application,
         value = "This is home Fragment"
     }
 
-    init {
-        getUserInfo()
-    }
-
-    private fun getUserInfo() {
+    fun getUserInfo() {
         val user = interactor.getUser()
 
-        user?.isAuthenticated?.let { isAuthenticated ->
-            requireLogin.apply {
-                !isAuthenticated
-            }
-        }
+        val isRequiredLogin = user?.isAuthenticated ?: true
+        requireLogin.postValue(isRequiredLogin)
     }
-    val requireLogin: LiveData<Boolean> = MutableLiveData()
+    val requireLogin: MutableLiveData<Boolean> = MutableLiveData()
 
 
 }
