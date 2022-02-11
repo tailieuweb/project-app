@@ -7,4 +7,5 @@ import java.util.*
 open class UserModel: RealmObject() {
     @PrimaryKey
     var userId: String = UUID.randomUUID().toString()
+    var isAuthenticated: Boolean = false
 }

@@ -4,14 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import android.support.v4.app.Fragment
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProvider
-import com.example.projecttask.databinding.FragmentHomeBinding
 import com.example.projecttask.databinding.FragmentTaskListBinding
+import com.example.projecttask.ui.BaseFragment
 
-class TaskListFragment : Fragment() {
+class TaskListFragment : BaseFragment() {
 
     private lateinit var loginViewModel: TaskListViewModel
     private var _binding: FragmentTaskListBinding? = null
@@ -25,8 +21,7 @@ class TaskListFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        loginViewModel =
-                ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(TaskListViewModel::class.java)
+        loginViewModel = getViewModel(TaskListViewModel::class.java)
 
         _binding = FragmentTaskListBinding.inflate(inflater, container, false)
         val root: View = binding.root

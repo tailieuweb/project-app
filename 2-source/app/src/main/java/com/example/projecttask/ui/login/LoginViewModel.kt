@@ -1,10 +1,14 @@
 package com.example.projecttask.ui.home
 
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import com.example.projecttask.interactor.AppInteractor
 
-class LoginViewModel : ViewModel() {
+class LoginViewModel constructor(private val app: Application,
+                                 private val interactor: AppInteractor
+) : AndroidViewModel(app)  {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is login Fragment"

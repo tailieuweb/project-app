@@ -5,13 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.support.v4.app.Fragment
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProvider
 import com.example.projecttask.databinding.FragmentForgotPasswordBinding
-import com.example.projecttask.databinding.FragmentLoginBinding
+import com.example.projecttask.ui.BaseFragment
 
-class ForgotPasswordFragment : Fragment() {
+class ForgotPasswordFragment : BaseFragment() {
 
     private lateinit var forgotPasswordViewModel: ForgotPasswordViewModel
     private var _binding: FragmentForgotPasswordBinding? = null
@@ -25,8 +22,7 @@ class ForgotPasswordFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        forgotPasswordViewModel =
-                ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(ForgotPasswordViewModel::class.java)
+        forgotPasswordViewModel = getViewModel(ForgotPasswordViewModel::class.java)
 
         _binding = FragmentForgotPasswordBinding.inflate(inflater, container, false)
         val root: View = binding.root

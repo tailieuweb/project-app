@@ -4,14 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import android.support.v4.app.Fragment
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProvider
 import com.example.projecttask.databinding.FragmentHomeBinding
 import com.example.projecttask.databinding.FragmentTaskConfirmBinding
+import com.example.projecttask.ui.BaseFragment
 
-class TaskConfirmFragment : Fragment() {
+class TaskConfirmFragment : BaseFragment() {
 
     private lateinit var loginViewModel: TaskConfirmViewModel
     private var _binding: FragmentTaskConfirmBinding? = null
@@ -25,8 +22,7 @@ class TaskConfirmFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        loginViewModel =
-                ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(TaskConfirmViewModel::class.java)
+        loginViewModel = getViewModel(TaskConfirmViewModel::class.java)
 
         _binding = FragmentTaskConfirmBinding.inflate(inflater, container, false)
         val root: View = binding.root

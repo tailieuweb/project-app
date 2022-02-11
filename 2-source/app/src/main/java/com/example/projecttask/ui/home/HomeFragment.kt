@@ -4,16 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import android.support.v4.app.Fragment
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProvider
 import android.widget.Toast
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.projecttask.R
+import com.example.projecttask.ui.BaseFragment
 import com.example.projecttask.databinding.FragmentHomeBinding
 
-class HomeFragment : Fragment() {
+class HomeFragment : BaseFragment() {
 
     private lateinit var homeViewModel: HomeViewModel
     private var _binding: FragmentHomeBinding? = null
@@ -27,27 +25,16 @@ class HomeFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-                ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(HomeViewModel::class.java)
+        homeViewModel = getViewModel(HomeViewModel::class.java)
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        //Text view
-        val textView: TextView = binding.textHome
-        textView.setOnClickListener {
-            findNavController().navigate(R.id.action_navigation_home_to_loginFragment)
-        }
 
-        //Button login
-//        binding.button.setOnClickListener{
-//            val message = "Test button login"
-//            Toast.makeText(this.context,message,Toast.LENGTH_LONG).show()
-//
-//        }
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-            findNavController().navigate(R.id.action_navigation_home_to_loginFragment)
+        homeViewModel.requireLogin.observe(viewLifecycleOwner, Observer {
+            if (it == true) {
+                findNavController().navigate(R.id.action_navigation_home_to_loginFragment)
+            }
         })
         return root
     }

@@ -29,4 +29,5 @@ ext {
     retrofit_version = '2.5.0'
     okhttp_version = '4.9.1'
     lifecycle_version = '2.4.0-alpha02'
+    navigation_version = '2.4.0-alpha05'
 }

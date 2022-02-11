@@ -1,9 +1,10 @@
 package com.example.projecttask.di
 
 import android.app.Application
-import android.arch.lifecycle.ViewModel
-import android.arch.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.example.projecttask.interactor.AppInteractor
+import com.example.projecttask.ui.home.HomeViewModel
 import javax.inject.Inject
 
 class ViewModelFactory @Inject constructor(
@@ -15,7 +16,7 @@ class ViewModelFactory @Inject constructor(
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         return with(modelClass) {
             when {
-
+                isAssignableFrom(HomeViewModel::class.java) -> HomeViewModel(application, interactor)
                 else ->
                     throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
             }
