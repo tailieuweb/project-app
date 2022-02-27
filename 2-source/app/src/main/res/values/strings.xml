@@ -7,4 +7,6 @@
     <string name="hint_password">Nhập mật khẩu</string>
     <string name="hint_username">Nhập tên</string>
     <string name="title_tasklist">Danh sách</string>
+    <string name="work_title">Công việc</string>
+    <string name="deadline">Deadline</string>
 </resources>

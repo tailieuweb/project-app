@@ -31,6 +31,7 @@ class ItemListAdapter(private val dataList: List<Any>, val onClick: ((item: Any)
                 is WebServiceApi.ListData -> {
                     itemBinding.tvTitle.text = itemData.name
                     itemBinding.tvValue.text = itemData.id
+                    itemBinding.tvDescription.text = itemData.description
                 }
             }
 
