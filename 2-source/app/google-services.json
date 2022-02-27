@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "1096540609183",
+    "firebase_url": "https://mobirace-3f0df.firebaseio.com",
+    "project_id": "mobirace-3f0df",
+    "storage_bucket": "mobirace-3f0df.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1096540609183:android:4d5e725d02cd01428f20aa",
+        "android_client_info": {
+          "package_name": "com.example.projecttask"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1096540609183-t1oug39d7l6vbi3igj0hkiedee9h8i75.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkkj8KpAym83TNu6flbBjS8p3ZcRSqEW0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1096540609183-t1oug39d7l6vbi3igj0hkiedee9h8i75.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1096540609183:android:1ee0b7a3eb7d5949",
+        "android_client_info": {
+          "package_name": "com.mobi.mobirace"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1096540609183-t1oug39d7l6vbi3igj0hkiedee9h8i75.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkkj8KpAym83TNu6flbBjS8p3ZcRSqEW0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1096540609183-t1oug39d7l6vbi3igj0hkiedee9h8i75.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
