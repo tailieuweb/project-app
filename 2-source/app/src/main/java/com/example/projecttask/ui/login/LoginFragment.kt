@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.example.projecttask.MainActivity
 import com.example.projecttask.databinding.FragmentLoginBinding
 import com.example.projecttask.ui.BaseFragment
@@ -34,6 +36,22 @@ class LoginFragment : BaseFragment() {
         val root: View = binding.root
 
         return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.loginButton.setOnClickListener {
+            Toast.makeText(requireContext(), "Login...", Toast.LENGTH_LONG).show()
+            val user = binding.usernameTextInput.editText?.text?.trim().toString()
+            val pass = binding.passportTextInput.editText?.text?.trim().toString()
+
+            loginViewModel.login(userName = user, password = pass) { success ->
+                if (success) {
+                    findNavController().navigateUp()
+                }
+            }
+        }
     }
 
     override fun onDestroyView() {

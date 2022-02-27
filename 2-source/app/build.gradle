@@ -16,6 +16,9 @@ android {
         versionCode 1
         versionName "1.0"
 
+        hasProperty('BASE_SERVICE_URL') ? BASE_SERVICE_URL : System.getenv('BASE_SERVICE_URL')
+        buildConfigField 'String', 'BASE_SERVICE_URL', BASE_SERVICE_URL
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
