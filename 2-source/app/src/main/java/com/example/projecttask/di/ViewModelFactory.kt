@@ -7,6 +7,7 @@ import com.example.projecttask.interactor.AppInteractor
 import com.example.projecttask.ui.dashboard.DashboardViewModel
 import com.example.projecttask.ui.home.*
 import com.example.projecttask.ui.notifications.NotificationsViewModel
+import com.example.projecttask.ui.task.TaskListViewModel
 import javax.inject.Inject
 
 class ViewModelFactory @Inject constructor(

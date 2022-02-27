@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name">Project Task</string>
-    <string name="title_home">Home</string>
+    <string name="title_home">Hồ sơ của tôi</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_notifications">Thông báo</string>
     <string name="button_login">Login</string>
     <string name="hint_password">Nhập mật khẩu</string>
     <string name="hint_username">Nhập tên</string>
+    <string name="title_tasklist">Danh sách</string>
 </resources>

@@ -31,4 +31,9 @@
         android:name="com.example.projecttask.ui.home.LoginFragment"
         tools:layout="@layout/fragment_login"
         android:label="LoginFragment" />
+    <fragment
+        android:id="@+id/taskListFragment"
+        android:name="com.example.projecttask.ui.task.TaskListFragment"
+        android:label="fragment_task_list"
+        tools:layout="@layout/fragment_task_list" />
 </navigation>
