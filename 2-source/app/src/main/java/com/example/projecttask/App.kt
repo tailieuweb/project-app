@@ -36,6 +36,8 @@ class App : Application() {
         val config = RealmConfiguration.Builder()
                 .name("default.realm")
                 //.encryptionKey(key) /*No support at the moment*/
+                .allowQueriesOnUiThread(true)
+                .allowWritesOnUiThread(true)
                 .schemaVersion(1)
                 .modules(RealmModule())
                 .migration(DbMigration())

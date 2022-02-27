@@ -57,5 +57,6 @@ class LoginFragment : BaseFragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+        (activity as? MainActivity)?.showOrHideBottomBar(isHidden = false)
     }
 }

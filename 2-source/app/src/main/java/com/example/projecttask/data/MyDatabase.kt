@@ -8,9 +8,16 @@ import javax.inject.Inject
 
 class MyDatabase @Inject constructor(){
 
+    private fun getRealm() : Realm {
+        val realm = Realm.getDefaultInstance()
+        realm.refresh()
+        return realm
+    }
+
     // TODO: save load user
     fun getUser(): UserModel? {
-        val realm = Realm.getDefaultInstance()
+        val realm = getRealm()
+        realm.refresh()
         val user = realm.where(UserModel::class.java).findFirst()
         if (user != null) {
             return  realm.copyFromRealm(user)
@@ -20,7 +27,7 @@ class MyDatabase @Inject constructor(){
     }
 
     fun saveUser(userModel: UserModel) {
-        val realm = Realm.getDefaultInstance()
+        val realm = getRealm()
         try {
             realm.executeTransaction {
                 realm.insertOrUpdate(userModel)
