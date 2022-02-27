@@ -29,5 +29,6 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.projecttask.ui.home.LoginFragment"
+        tools:layout="@layout/fragment_login"
         android:label="LoginFragment" />
 </navigation>

@@ -16,7 +16,7 @@ class HomeViewModel constructor(private val app: Application,
     fun getUserInfo() {
         val user = interactor.getUser()
 
-        val isRequiredLogin = user?.isAuthenticated ?: true
+        val isRequiredLogin = user?.isAuthenticated ?: false
         requireLogin.postValue(isRequiredLogin)
     }
     val requireLogin: MutableLiveData<Boolean> = MutableLiveData()

@@ -31,7 +31,8 @@ class HomeFragment : BaseFragment() {
         val root: View = binding.root
 
         homeViewModel.requireLogin.observe(viewLifecycleOwner, Observer {
-            if (it == true) {
+            if (it == false) {
+                Toast.makeText(requireContext(), "Login is required.", Toast.LENGTH_LONG).show()
                 findNavController().navigate(R.id.action_navigation_home_to_loginFragment)
             }
         })

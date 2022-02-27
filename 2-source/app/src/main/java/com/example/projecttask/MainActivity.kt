@@ -1,6 +1,7 @@
 package com.example.projecttask
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -28,5 +29,9 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications))
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+    }
+
+    fun showOrHideBottomBar(isHidden: Boolean) {
+        binding.navView.visibility = if (isHidden) View.GONE else View.VISIBLE
     }
 }

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.projecttask.MainActivity
 import com.example.projecttask.databinding.FragmentLoginBinding
 import com.example.projecttask.ui.BaseFragment
 
@@ -15,6 +16,12 @@ class LoginFragment : BaseFragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        (activity as? MainActivity)?.showOrHideBottomBar(isHidden = true)
+    }
 
     override fun onCreateView(
             inflater: LayoutInflater,
