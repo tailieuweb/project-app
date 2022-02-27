@@ -28,6 +28,30 @@ class AppInteractor @Inject constructor(
             })
     }
 
+    fun getList(completion: ((List<WebServiceApi.ListData>) -> Unit)?) {
+        webServiceApi.getList()
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io())
+            .subscribe({
+
+                completion?.invoke(it)
+            }, {
+                completion?.invoke(listOf())
+            })
+    }
+
+    fun getDetail(id: String, completion: ((WebServiceApi.DetailData?) -> Unit)?) {
+        webServiceApi.getDetail(id)
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io())
+            .subscribe({
+
+                completion?.invoke(it)
+            }, {
+                completion?.invoke(null)
+            })
+    }
+
     init {
         // TODO: Interactor layer
     }
