@@ -43,6 +43,11 @@ class HomeFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         homeViewModel.getUserInfo()
+        homeViewModel.userModel.observe(viewLifecycleOwner, Observer {
+            binding.tvName.text = "User name: "+ it.name
+            binding.tvUserEmail.text ="User email: " + it.email
+            binding.tvUserId.text = "User id:" + it.userId
+        })
     }
 
     override fun onDestroyView() {

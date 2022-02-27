@@ -19,6 +19,12 @@
         <item name="materialButtonStyle">@style/Widget.App.Button</item>
     </style>
 
+    <style name="TextAppearance.App.Body" parent="TextAppearance.MaterialComponents.Body2">
+        <!--        <item name="fontFamily">@font/rubik</item>-->
+        <!--        <item name="android:fontFamily">@font/rubik</item>-->
+        <item name="android:textColor">@color/purple_700</item>
+    </style>
+
     <style name="TextAppearance.App.Button" parent="TextAppearance.MaterialComponents.Button">
 <!--        <item name="fontFamily">@font/rubik</item>-->
 <!--        <item name="android:fontFamily">@font/rubik</item>-->
