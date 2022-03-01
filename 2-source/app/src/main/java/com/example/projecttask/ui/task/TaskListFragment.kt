@@ -8,6 +8,7 @@ import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.projecttask.R
+import com.example.projecttask.apis.TaskDetail
 import com.example.projecttask.apis.WebServiceApi
 import com.example.projecttask.databinding.FragmentTaskListBinding
 import com.example.projecttask.ui.BaseFragment
@@ -51,9 +52,9 @@ class TaskListFragment : BaseFragment() {
     }
 
     private fun onSelectItem(item: Any) {
-        (item as? WebServiceApi.ListData)?.let { listData ->
+        (item as? TaskDetail)?.let { taskDetail ->
             val bundle = Bundle()
-            bundle.putString("id", listData.id)
+            bundle.putString("id", taskDetail.task.task_id.toString())
             findNavController().navigate(R.id.taskDetailFragment, bundle)
         }
 

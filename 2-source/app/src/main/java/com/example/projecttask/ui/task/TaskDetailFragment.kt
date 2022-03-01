@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.projecttask.databinding.FragmentTaskDetailBinding
 import com.example.projecttask.ui.BaseFragment
 
@@ -26,11 +27,14 @@ class TaskDetailFragment : BaseFragment() {
         _binding = FragmentTaskDetailBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-//        val textView: TextView = binding.textHome
-//        loginViewModel.text.observe(viewLifecycleOwner, Observer {
-//            textView.text = it
-//        })
         return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val taskId = requireArguments().getString("id")
+        Toast.makeText(requireContext(), "Display task details = ${taskId}", Toast.LENGTH_LONG).show()
     }
 
     override fun onDestroyView() {
