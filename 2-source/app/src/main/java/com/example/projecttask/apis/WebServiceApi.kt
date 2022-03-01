@@ -37,7 +37,7 @@ class WebServiceApi @Inject constructor (private val okHttpClient: OkHttpClient,
                     "${BuildConfig.BASE_SERVICE_URL}/login"
 
                 val jsonObject = JsonObject()
-                jsonObject.addProperty("user", userName)
+                jsonObject.addProperty("email", userName)
                 jsonObject.addProperty("password", password)
                 val body = gson.toJson(jsonObject).toRequestBody(JSON)
                 val request = Request.Builder()
