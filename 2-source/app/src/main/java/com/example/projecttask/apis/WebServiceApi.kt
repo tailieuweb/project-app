@@ -32,18 +32,18 @@ class WebServiceApi @Inject constructor (private val okHttpClient: OkHttpClient,
     )
 
     //Task info
-    data class TaskInfo(
-        val id: String,
-        val name: String,
-        val overview: String,
-        val description: String
+    data class TaskInfo (
+        val task_id: String,
+        val task_name: String,
+        val task_overview: String,
+        val task_description: String
     )
 
     //[{"id":1,"name":1,"description":""},{"id":2,"name":2,"description":""},{"id":3,"name":3,"description":""}]
     data class ListData(
         val id: String,
         val notes: String,
-        val taskInfo: TaskInfo
+        val task: TaskInfo
 
     )
 
@@ -109,7 +109,11 @@ class WebServiceApi @Inject constructor (private val okHttpClient: OkHttpClient,
                     .get()
                     .build()
 
+                print("UserID = ${userId}")
+                print("Token = ${token}")
+
                 val response = okHttpClient.newCall(request).execute()
+                print("Reponse = ${response.body?.string()}")
                 if (response.isSuccessful) {
                     val myList: Array<ListData> = gson.fromJson(response.body?.string(), Array<ListData>::class.java)
 

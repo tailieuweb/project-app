@@ -29,7 +29,12 @@ class AppInteractor @Inject constructor(
     }
 
     fun getList(completion: ((List<WebServiceApi.ListData>) -> Unit)?) {
-        webServiceApi.getList(userId = "pass_user_id_here", token = "pass_token_here")
+        val user = repository.getUser()
+        if (user == null) {
+            completion?.invoke(listOf())
+            return
+        }
+        webServiceApi.getList(userId = user.userId, token = user.token)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
             .subscribe({
