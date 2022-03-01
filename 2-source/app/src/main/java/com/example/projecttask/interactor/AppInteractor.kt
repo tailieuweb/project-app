@@ -40,8 +40,8 @@ class AppInteractor @Inject constructor(
             })
     }
 
-    fun getDetail(id: String, completion: ((WebServiceApi.DetailData?) -> Unit)?) {
-        webServiceApi.getDetail(id)
+    fun getDetail(user_id: String,task_id: String, completion: ((WebServiceApi.DetailData?) -> Unit)?) {
+        webServiceApi.getDetail(user_id, task_id)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
             .subscribe({

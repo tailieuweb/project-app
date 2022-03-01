@@ -29,9 +29,10 @@ class ItemListAdapter(private val dataList: List<Any>, val onClick: ((item: Any)
             // TODO: bind item data
             when (itemData) {
                 is WebServiceApi.ListData -> {
-                    itemBinding.tvTitle.text = itemData.name
+                    itemBinding.tvTitle.text = itemData.id
                     itemBinding.tvValue.text = itemData.id
-                    itemBinding.tvDescription.text = itemData.description
+                    itemBinding.tvStatus.text = itemData.id
+                    itemBinding.tvDescription.text = itemData.id
                 }
             }
 

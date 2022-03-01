@@ -15,7 +15,7 @@ class  MyRepository @Inject constructor(private val DAO: MyDatabase) {
         val userModel = UserModel()
         userModel.userId = userData.user.id
         userModel.email = userData.user.email
-        userModel.name = userData.user.name
+        userModel.user_name = userData.user.user_name
         userModel.token = userData.token
         userModel.isAuthenticated = true
 

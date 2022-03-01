@@ -10,7 +10,7 @@ open class UserModel: RealmObject() {
     @PrimaryKey
     var userId: String = UUID.randomUUID().toString()
     var email: String = ""
-    var name: String = ""
+    var user_name: String = ""
     var token: String = ""
     var isAuthenticated: Boolean = false
 }

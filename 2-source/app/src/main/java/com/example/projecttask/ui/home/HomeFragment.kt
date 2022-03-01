@@ -44,7 +44,7 @@ class HomeFragment : BaseFragment() {
 
         homeViewModel.getUserInfo()
         homeViewModel.userModel.observe(viewLifecycleOwner, Observer {
-            binding.tvName.text = "User name: "+ it.name
+            binding.tvName.text = "User name: "+ it.user_name
             binding.tvUserEmail.text ="User email: " + it.email
             binding.tvUserId.text = "User id:" + it.userId
         })
