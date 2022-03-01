@@ -2,9 +2,11 @@ package com.example.projecttask.apis
 
 import com.example.projecttask.BuildConfig
 import com.google.gson.GsonBuilder
+import com.google.gson.JsonObject
 import io.reactivex.Single
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import okhttp3.RequestBody.Companion.toRequestBody
 import retrofit2.Retrofit
 import javax.inject.Inject
 
@@ -14,6 +16,8 @@ class WebServiceApi @Inject constructor (private val okHttpClient: OkHttpClient,
     private val gson = GsonBuilder()
         .setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
         .create()
+
+    val JSON = "application/json; charset=utf-8".toMediaType()
 
     // {"token":"123456798","user":{"id":1,"name":1,"email":"1@gmail.com"}}
     data class UserData(val id: String, val name: String, val email: String)
@@ -31,9 +35,13 @@ class WebServiceApi @Inject constructor (private val okHttpClient: OkHttpClient,
                 val url =
                     "${BuildConfig.BASE_SERVICE_URL}/login"
 
+                val jsonObject = JsonObject()
+                jsonObject.addProperty("user", userName)
+                jsonObject.addProperty("password", password)
+                val body = gson.toJson(jsonObject).toRequestBody(JSON)
                 val request = Request.Builder()
                     .url(url)
-                    .get() // TODO: replace get = post with body
+                    .post(body)
                     .build()
 
                 val response = okHttpClient.newCall(request).execute()
@@ -51,15 +59,17 @@ class WebServiceApi @Inject constructor (private val okHttpClient: OkHttpClient,
         }
     }
 
-    fun getList(): Single<List<ListData>> {
+
+    fun getList(userId: String, token: String): Single<List<ListData>> {
         return Single.create<List<ListData>> { emitter ->
             try {
                 val url =
-                    "${BuildConfig.BASE_SERVICE_URL}/list"
+                    "${BuildConfig.BASE_SERVICE_URL}/list/${userId}"
 
                 val request = Request.Builder()
                     .url(url)
-                    .get() // TODO: replace get = post with body
+                    .addHeader("Authorization", "Bearer ${token}")
+                    .get()
                     .build()
 
                 val response = okHttpClient.newCall(request).execute()

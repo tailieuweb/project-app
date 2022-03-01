@@ -4,7 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.projecttask.R
+import com.example.projecttask.apis.WebServiceApi
 import com.example.projecttask.databinding.FragmentTaskListBinding
 import com.example.projecttask.ui.BaseFragment
 import com.example.projecttask.ui.adapters.ItemListAdapter
@@ -38,9 +42,21 @@ class TaskListFragment : BaseFragment() {
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         viewModel.getTaskList()
         viewModel.liveData.observe(viewLifecycleOwner) {
-            adapter = ItemListAdapter(it)
+            adapter = ItemListAdapter(it) {
+                // TODO: Handle onClick on the item
+                onSelectItem(it)
+            }
             binding.recyclerView.adapter = adapter
         }
+    }
+
+    private fun onSelectItem(item: Any) {
+        (item as? WebServiceApi.ListData)?.let { listData ->
+            val bundle = Bundle()
+            bundle.putString("id", listData.id)
+            findNavController().navigate(R.id.taskDetailFragment, bundle)
+        }
+
     }
 
     override fun onDestroyView() {

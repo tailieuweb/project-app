@@ -29,7 +29,7 @@ class AppInteractor @Inject constructor(
     }
 
     fun getList(completion: ((List<WebServiceApi.ListData>) -> Unit)?) {
-        webServiceApi.getList()
+        webServiceApi.getList(userId = "pass_user_id_here", token = "pass_token_here")
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
             .subscribe({
