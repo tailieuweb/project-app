@@ -8,24 +8,18 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="374dp"
-        android:layout_height="142dp"
-        android:src="@drawable/fit_logo_en_highres"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="7dp" />
-
-    <TextView
-        android:id="@+id/textView23"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Danh sách công việc đã báo"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="176dp" />
+        android:src="@drawable/fit_logo_en_highres"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
 
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="391dp"
-        android:layout_height="592dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="214dp" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/imageView3"
+        app:layout_constraintBottom_toBottomOf="parent"
+         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
