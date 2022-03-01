@@ -1,5 +1,6 @@
 package com.example.projecttask.interactor
 
+import com.example.projecttask.apis.TaskDetail
 import com.example.projecttask.apis.WebServiceApi
 import com.example.projecttask.data.model.UserModel
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -28,7 +29,7 @@ class AppInteractor @Inject constructor(
             })
     }
 
-    fun getList(completion: ((List<WebServiceApi.ListData>) -> Unit)?) {
+    fun getList(completion: ((List<TaskDetail>) -> Unit)?) {
         val user = repository.getUser()
         if (user == null) {
             completion?.invoke(listOf())

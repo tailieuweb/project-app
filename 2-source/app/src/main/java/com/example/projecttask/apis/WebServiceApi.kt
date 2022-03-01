@@ -32,6 +32,7 @@ class WebServiceApi @Inject constructor (private val okHttpClient: OkHttpClient,
     )
 
     //Task info
+    @Deprecated("No longer needed. Use `Task` instead.")
     data class TaskInfo (
         val task_id: String,
         val task_name: String,
@@ -40,6 +41,7 @@ class WebServiceApi @Inject constructor (private val okHttpClient: OkHttpClient,
     )
 
     //[{"id":1,"name":1,"description":""},{"id":2,"name":2,"description":""},{"id":3,"name":3,"description":""}]
+    @Deprecated("No longer needed. Use `TaskDetail` instead!")
     data class ListData(
         val id: String,
         val notes: String,
@@ -98,8 +100,8 @@ class WebServiceApi @Inject constructor (private val okHttpClient: OkHttpClient,
      * body: user_id
      * header: token
      */
-    fun getList(userId: String, token: String): Single<List<ListData>> {
-        return Single.create<List<ListData>> { emitter ->
+    fun getList(userId: String, token: String): Single<List<TaskDetail>> {
+        return Single.create { emitter ->
             try {
                 val url = "${BuildConfig.BASE_SERVICE_URL}/tasks?user_id=${userId}"
 
@@ -113,9 +115,9 @@ class WebServiceApi @Inject constructor (private val okHttpClient: OkHttpClient,
                 print("Token = ${token}")
 
                 val response = okHttpClient.newCall(request).execute()
-                print("Reponse = ${response.body?.string()}")
+
                 if (response.isSuccessful) {
-                    val myList: Array<ListData> = gson.fromJson(response.body?.string(), Array<ListData>::class.java)
+                    val myList: Array<TaskDetail> = gson.fromJson(response.body?.string(), Array<TaskDetail>::class.java)
 
                     emitter.onSuccess(myList.toList())
                 } else {

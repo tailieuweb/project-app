@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projecttask.R
+import com.example.projecttask.apis.TaskDetail
 import com.example.projecttask.apis.WebServiceApi
 import com.example.projecttask.databinding.ItemSimpleBinding
 
@@ -28,11 +29,11 @@ class ItemListAdapter(private val dataList: List<Any>, val onClick: ((item: Any)
         fun bind(itemData: Any) {
             // TODO: bind item data
             when (itemData) {
-                is WebServiceApi.ListData -> {
-                    itemBinding.tvTitle.text = itemData.id
-                    itemBinding.tvValue.text = itemData.id
-                    itemBinding.tvStatus.text = itemData.id
-                    itemBinding.tvDescription.text = itemData.id
+                is TaskDetail -> {
+                    itemBinding.tvTitle.text = itemData.id.toString()
+                    itemBinding.tvValue.text = itemData.id.toString()
+                    itemBinding.tvStatus.text = itemData.id.toString()
+                    itemBinding.tvDescription.text = itemData.id.toString()
                 }
             }
 
