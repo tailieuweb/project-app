@@ -4,6 +4,7 @@ import com.example.projecttask.BuildConfig
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonObject
 import io.reactivex.Single
+import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
