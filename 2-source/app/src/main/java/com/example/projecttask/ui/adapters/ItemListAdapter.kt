@@ -33,7 +33,7 @@ class ItemListAdapter(private val dataList: List<Any>, val onClick: ((item: Any)
                     itemBinding.tvTitle.text = itemData.id.toString()
                     itemBinding.tvValue.text = itemData.id.toString()
                     itemBinding.tvStatus.text = itemData.id.toString()
-                    itemBinding.tvDescription.text = itemData.id.toString()
+                    itemBinding.tvDescription.text = itemData.updated_at
                 }
             }
 

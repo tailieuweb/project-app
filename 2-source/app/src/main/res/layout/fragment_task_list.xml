@@ -65,6 +65,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginLeft="24dp"
                 android:text="#" />
 
             <TextView
@@ -94,6 +95,8 @@
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        tools:itemCount="10"
+        tools:listitem="@layout/item_simple"
         app:layout_constraintTop_toBottomOf="@id/topView"
         app:layout_constraintBottom_toBottomOf="parent" />
 
