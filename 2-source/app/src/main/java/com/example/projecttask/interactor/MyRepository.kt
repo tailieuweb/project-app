@@ -2,6 +2,7 @@ package com.example.projecttask.interactor
 
 import com.example.projecttask.apis.WebServiceApi
 import com.example.projecttask.data.MyDatabase
+import com.example.projecttask.data.model.NotificationModel
 import com.example.projecttask.data.model.UserModel
 import java.util.*
 import javax.inject.Inject
@@ -20,5 +21,9 @@ class  MyRepository @Inject constructor(private val DAO: MyDatabase) {
         userModel.isAuthenticated = true
 
         DAO.saveUser(userModel)
+    }
+
+    fun getNotifications() : List<NotificationModel> {
+        return DAO.getNotifications()
     }
 }

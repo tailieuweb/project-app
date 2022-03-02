@@ -1,5 +1,6 @@
 package com.example.projecttask.data
 
+import com.example.projecttask.data.model.NotificationModel
 import com.example.projecttask.data.model.UserModel
 import io.realm.Realm
 import io.realm.exceptions.RealmException
@@ -17,7 +18,6 @@ class MyDatabase @Inject constructor(){
     // TODO: save load user
     fun getUser(): UserModel? {
         val realm = getRealm()
-        realm.refresh()
         val user = realm.where(UserModel::class.java).findFirst()
         if (user != null) {
             return  realm.copyFromRealm(user)
@@ -39,5 +39,12 @@ class MyDatabase @Inject constructor(){
             realm.close()
         }
 
+    }
+
+    fun getNotifications() : List<NotificationModel> {
+        val realm = getRealm()
+        val notifications = realm.where(NotificationModel::class.java).findAll()
+
+        return realm.copyFromRealm(notifications).toList()
     }
 }

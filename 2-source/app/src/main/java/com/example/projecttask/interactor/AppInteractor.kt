@@ -2,6 +2,7 @@ package com.example.projecttask.interactor
 
 import com.example.projecttask.apis.TaskDetail
 import com.example.projecttask.apis.WebServiceApi
+import com.example.projecttask.data.model.NotificationModel
 import com.example.projecttask.data.model.UserModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -60,6 +61,11 @@ class AppInteractor @Inject constructor(
 
     fun submit(notes: String, done: Boolean) {
         // TODO: Handle post to webservice here
+    }
+
+    fun getNotifications(completion: ((List<NotificationModel>) -> Unit)?) {
+        val notifications = repository.getNotifications()
+        completion?.invoke(notifications)
     }
 
     init {

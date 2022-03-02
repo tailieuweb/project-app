@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.projecttask.R
 import com.example.projecttask.apis.TaskDetail
@@ -41,6 +42,7 @@ class TaskListFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.recyclerView.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
         viewModel.getTaskList()
         viewModel.liveData.observe(viewLifecycleOwner) {
             adapter = ItemListAdapter(it) {
