@@ -2,6 +2,7 @@ package com.example.projecttask.services
 
 import android.util.Log
 import com.example.projecttask.App
+import com.example.projecttask.data.model.NotificationModel
 import com.example.projecttask.interactor.AppInteractor
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
@@ -23,6 +24,10 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         print("Body: ${remoteMessage.notification?.body}" )
 
         // TODO: save notification to my database
+        val notificationModel = NotificationModel()
+        notificationModel.description  = "Data: ${remoteMessage.data}"
+
+        selfInteractor.saveNotification(notificationModel)
     }
 
     override fun onNewToken(token: String) {

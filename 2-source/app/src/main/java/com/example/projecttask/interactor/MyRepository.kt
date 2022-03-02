@@ -26,4 +26,8 @@ class  MyRepository @Inject constructor(private val DAO: MyDatabase) {
     fun getNotifications() : List<NotificationModel> {
         return DAO.getNotifications()
     }
+
+    fun saveNotification(notificationModel: NotificationModel) {
+        DAO.saveNotification(notificationModel)
+    }
 }

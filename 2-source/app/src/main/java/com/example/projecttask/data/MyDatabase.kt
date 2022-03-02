@@ -47,4 +47,19 @@ class MyDatabase @Inject constructor(){
 
         return realm.copyFromRealm(notifications).toList()
     }
+
+    fun saveNotification(notificationModel: NotificationModel) {
+        val realm = getRealm()
+        try {
+            realm.executeTransaction {
+                realm.insertOrUpdate(notificationModel)
+            }
+        } catch (ex: RealmException) {
+            print(ex)
+            // TODO: Handle error
+        } finally {
+            realm.close()
+        }
+
+    }
 }

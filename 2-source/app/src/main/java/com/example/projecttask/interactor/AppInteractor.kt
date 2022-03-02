@@ -68,6 +68,10 @@ class AppInteractor @Inject constructor(
         completion?.invoke(notifications)
     }
 
+    fun saveNotification(notificationModel: NotificationModel) {
+        repository.saveNotification(notificationModel)
+    }
+
     init {
         // TODO: Interactor layer
     }
