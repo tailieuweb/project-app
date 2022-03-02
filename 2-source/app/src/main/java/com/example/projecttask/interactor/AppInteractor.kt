@@ -58,6 +58,10 @@ class AppInteractor @Inject constructor(
             })
     }
 
+    fun submit(notes: String, done: Boolean) {
+        // TODO: Handle post to webservice here
+    }
+
     init {
         // TODO: Interactor layer
     }

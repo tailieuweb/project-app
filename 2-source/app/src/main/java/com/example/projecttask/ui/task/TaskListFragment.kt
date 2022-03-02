@@ -54,7 +54,7 @@ class TaskListFragment : BaseFragment() {
     private fun onSelectItem(item: Any) {
         (item as? TaskDetail)?.let { taskDetail ->
             val bundle = Bundle()
-            bundle.putString("id", taskDetail.task.task_id.toString())
+            bundle.putString("id", taskDetail.task_id.toString())
             findNavController().navigate(R.id.taskDetailFragment, bundle)
         }
 

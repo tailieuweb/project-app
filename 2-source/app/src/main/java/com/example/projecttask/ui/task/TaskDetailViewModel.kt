@@ -1,17 +1,15 @@
-package com.example.projecttask.ui.home
+package com.example.projecttask.ui.task
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.example.projecttask.interactor.AppInteractor
 
 class TaskDetailViewModel constructor(private val app: Application,
                                       private val interactor: AppInteractor
 ) : AndroidViewModel(app)  {
-
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is login Fragment"
+    fun submit(notes: String, done: Boolean) {
+        interactor.submit(notes, done)
     }
-    val text: LiveData<String> = _text
+
+
 }

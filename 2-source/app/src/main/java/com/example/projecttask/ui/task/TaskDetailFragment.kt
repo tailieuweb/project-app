@@ -1,4 +1,4 @@
-package com.example.projecttask.ui.home
+package com.example.projecttask.ui.task
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +10,7 @@ import com.example.projecttask.ui.BaseFragment
 
 class TaskDetailFragment : BaseFragment() {
 
-    private lateinit var loginViewModel: TaskDetailViewModel
+    private lateinit var viewModel: TaskDetailViewModel
     private var _binding: FragmentTaskDetailBinding? = null
 
     // This property is only valid between onCreateView and
@@ -22,7 +22,7 @@ class TaskDetailFragment : BaseFragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        loginViewModel = getViewModel(TaskDetailViewModel::class.java)
+        viewModel = getViewModel(TaskDetailViewModel::class.java)
 
         _binding = FragmentTaskDetailBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -35,6 +35,14 @@ class TaskDetailFragment : BaseFragment() {
 
         val taskId = requireArguments().getString("id")
         Toast.makeText(requireContext(), "Display task details = ${taskId}", Toast.LENGTH_LONG).show()
+
+        binding.button6.setOnClickListener {
+            // TODO: Handle submit task detail changes here
+            val notes = "ABC"
+            val done = binding.checkboxTaskStatus.isChecked
+            Toast.makeText(requireContext(), "We have not implemented it yet.", Toast.LENGTH_LONG).show()
+            viewModel.submit(notes, done)
+        }
     }
 
     override fun onDestroyView() {
