@@ -63,7 +63,7 @@ class WebServiceApi @Inject constructor (private val okHttpClient: OkHttpClient,
      * method: post
      * body: email, password
      */
-    fun login(email: String, password: String): Single<LoginData> {
+    fun login(email: String, password: String, deviceToken: String): Single<LoginData> {
         return Single.create<LoginData> { emitter ->
             try {
                 val url = "${BuildConfig.BASE_SERVICE_URL}/login"
@@ -71,7 +71,9 @@ class WebServiceApi @Inject constructor (private val okHttpClient: OkHttpClient,
                 val jsonObject = JsonObject()
                 jsonObject.addProperty("email", email)
                 jsonObject.addProperty("password", password)
+                jsonObject.addProperty("device_token", deviceToken)
                 val body = gson.toJson(jsonObject).toRequestBody(JSON)
+                print("Login payload = ${jsonObject}")
                 val request = Request.Builder()
                     .url(url)
                     .post(body)

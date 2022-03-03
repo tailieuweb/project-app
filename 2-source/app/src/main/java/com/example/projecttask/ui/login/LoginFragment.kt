@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.projecttask.MainActivity
+import com.example.projecttask.R
 import com.example.projecttask.databinding.FragmentLoginBinding
 import com.example.projecttask.ui.BaseFragment
 
@@ -48,7 +49,7 @@ class LoginFragment : BaseFragment() {
 
             loginViewModel.login(userName = user, password = pass) { success ->
                 if (success) {
-                    findNavController().navigateUp()
+                    findNavController().navigate(R.id.action_loginFragment_to_navigation_home)
                 }
             }
         }

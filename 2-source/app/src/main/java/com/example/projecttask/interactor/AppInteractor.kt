@@ -16,8 +16,13 @@ class AppInteractor @Inject constructor(
         return repository.getUser()
     }
 
-    fun login(userName: String, password: String, completion: ((Boolean) -> Unit)?) {
-        webServiceApi.login(userName, password)
+    fun login(
+        userName: String,
+        password: String,
+        deviceToken: String,
+        completion: ((Boolean) -> Unit)?
+    ) {
+        webServiceApi.login(userName, password, deviceToken)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
             .subscribe({
