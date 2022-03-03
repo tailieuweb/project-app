@@ -42,12 +42,16 @@ class HomeFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.userIdTextInput.editText?.isEnabled = false
+        binding.usernameTextInput.editText?.isEnabled = false
+        binding.emailTextInput.editText?.isEnabled = false
+
         homeViewModel.getUserInfo()
-        homeViewModel.userModel.observe(viewLifecycleOwner, Observer {
-            binding.tvName.text = "User name: "+ it.user_name
-            binding.tvUserEmail.text ="User email: " + it.email
-            binding.tvUserId.text = "User id:" + it.userId
-        })
+        homeViewModel.userModel.observe(viewLifecycleOwner) {
+            binding.usernameTextInput.editText?.setText(it.user_name)
+            binding.emailTextInput.editText?.setText(it.email)
+            binding.userIdTextInput.editText?.setText(it.userId)
+        }
     }
 
     override fun onDestroyView() {
