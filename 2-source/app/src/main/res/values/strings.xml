@@ -10,4 +10,7 @@
     <string name="work_title">Công việc</string>
     <string name="deadline">Deadline</string>
     <string name="taskStatus">Trạng thái công việc</string>
+    <string name="taskName">Tên công việc</string>
+    <string name="taskStartDate">Ngày bắt đầu</string>
+    <string name="taskEndDate">Ngày kết thúc</string>
 </resources>

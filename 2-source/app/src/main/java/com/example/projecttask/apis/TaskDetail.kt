@@ -9,7 +9,7 @@ data class TaskDetail(
     val notes: Any,
     val sequence: Any,
     val status: Any,
-    val task: Task,
+    val tasks: Task,
     val task_id: Int,
     val updated_at: String,
     val updated_user_id: Any,

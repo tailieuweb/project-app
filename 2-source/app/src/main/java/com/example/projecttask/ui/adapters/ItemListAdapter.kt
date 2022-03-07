@@ -7,6 +7,7 @@ import com.example.projecttask.R
 import com.example.projecttask.apis.TaskDetail
 import com.example.projecttask.apis.WebServiceApi
 import com.example.projecttask.databinding.ItemSimpleBinding
+import java.util.*
 
 
 class ItemListAdapter(private val dataList: List<Any>, val onClick: ((item: Any) -> Unit)? = null) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -30,10 +31,10 @@ class ItemListAdapter(private val dataList: List<Any>, val onClick: ((item: Any)
             // TODO: bind item data
             when (itemData) {
                 is TaskDetail -> {
-                    itemBinding.tvTitle.text = itemData.id.toString()
-                    itemBinding.tvValue.text = itemData.id.toString()
-                    itemBinding.tvStatus.text = itemData.id.toString()
-                    itemBinding.tvDescription.text = itemData.updated_at
+                    itemBinding.tvTaskNameValue.text = itemData.tasks.task_name
+                    itemBinding.tvTaskStartDateValue.text = itemData.created_at.toString()
+                    itemBinding.tvTaskEndDateValue.text = itemData.updated_at.toString()
+                    itemBinding.tvTaskStatusValue.text = "Đang tiến hành" // TODO: @nhuan correct here
                 }
             }
 
