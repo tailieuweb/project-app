@@ -13,4 +13,5 @@
     <string name="taskName">Tên công việc</string>
     <string name="taskStartDate">Ngày bắt đầu</string>
     <string name="taskEndDate">Ngày kết thúc</string>
+    <string name="titleLogin">Đăng nhập</string>
 </resources>
