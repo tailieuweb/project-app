@@ -32,8 +32,8 @@ class NotificationListAdapter(private val dataList: List<Any>, val onClick: ((it
             // TODO: bind item data
             when (itemData) {
                 is NotificationModel -> {
-                    itemBinding.tvTitle.text = itemData.id
-                    itemBinding.tvValue.text = itemData.description
+                    itemBinding.tvTitle.text = itemData.description
+                    itemBinding.tvValue.text = itemData.taskId
                 }
             }
 

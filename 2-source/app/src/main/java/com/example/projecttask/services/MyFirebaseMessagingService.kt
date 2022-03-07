@@ -25,7 +25,13 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
         // TODO: save notification to my database
         val notificationModel = NotificationModel()
-        notificationModel.description  = "Data: ${remoteMessage.data}"
+
+        val body = remoteMessage.data.get("body")
+        val title = remoteMessage.data.get("title")
+        val taskId = remoteMessage.data.get("task_id")
+        notificationModel.title  = title ?: ""
+        notificationModel.description  = body ?: ""
+        notificationModel.taskId  = taskId ?: ""
 
         selfInteractor.saveNotification(notificationModel)
     }

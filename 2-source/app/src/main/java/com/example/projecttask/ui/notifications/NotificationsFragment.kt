@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.projecttask.R
+import com.example.projecttask.data.model.NotificationModel
 import com.example.projecttask.databinding.FragmentNotificationsBinding
 import com.example.projecttask.ui.BaseFragment
 import com.example.projecttask.ui.adapters.ItemListAdapter
@@ -44,8 +46,17 @@ class NotificationsFragment : BaseFragment() {
         viewModel.liveData.observe(viewLifecycleOwner) {
             adapter = NotificationListAdapter(it) {
                 // TODO: Handle click on the notification item
+                onClickItem(it)
             }
             binding.recyclerView.adapter = adapter
+        }
+    }
+
+    private fun onClickItem(it: Any) {
+        (it as? NotificationModel)?.let { notificationModel ->
+            val bundle = Bundle()
+            bundle.putString("id", notificationModel.taskId)
+            findNavController().navigate(R.id.action_navigation_notifications_to_taskDetailFragment, bundle)
         }
     }
 

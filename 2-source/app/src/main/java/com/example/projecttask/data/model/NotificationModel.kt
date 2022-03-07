@@ -10,4 +10,6 @@ open class NotificationModel: RealmObject() {
     @PrimaryKey
     var id: String = UUID.randomUUID().toString()
     var description: String = ""
+    var title: String = ""
+    var taskId: String = ""
 }
