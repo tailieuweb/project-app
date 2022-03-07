@@ -4,7 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Toast
+import com.example.projecttask.R
 import com.example.projecttask.databinding.FragmentTaskDetailBinding
 import com.example.projecttask.ui.BaseFragment
 
@@ -33,15 +36,32 @@ class TaskDetailFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val taskId = requireArguments().getString("id")
+        val taskId = requireArguments().getString("id") ?: ""
         Toast.makeText(requireContext(), "Display task details = ${taskId}", Toast.LENGTH_LONG).show()
 
+        val taskValues = resources.getStringArray(R.array.taskValues)
+        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, taskValues)
+        binding.spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>,
+                                        view: View, position: Int, id: Long) {
+                Toast.makeText(requireContext(), taskValues[position], Toast.LENGTH_LONG).show()
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                // write code to perform some action
+            }
+        }
+
+        binding.spinner.adapter = adapter
         binding.button6.setOnClickListener {
             // TODO: Handle submit task detail changes here
-            val notes = "ABC"
-            val done = binding.checkboxTaskStatus.isChecked
-            Toast.makeText(requireContext(), "We have not implemented it yet.", Toast.LENGTH_LONG).show()
-            viewModel.submit(notes, done)
+            val taskDescription = binding.taskDescriptionInputTextLayout.editText?.text?.trim().toString()
+
+            val taskStatus = taskValues[binding.spinner.selectedItemPosition]
+
+            viewModel.submit(taskId = taskId, taskDescription, taskStatus) { success ->
+                Toast.makeText(requireContext(), "Save task = ${success}.", Toast.LENGTH_LONG).show()
+            }
         }
     }
 

@@ -160,4 +160,34 @@ class WebServiceApi @Inject constructor (private val okHttpClient: OkHttpClient,
         }
     }
 
+    fun updateTask(userId: String, token: String, taskId: String, notes: String, taskStatus: String): Single<Boolean> {
+        return Single.create { emitter ->
+            try {
+                val url = "${BuildConfig.BASE_SERVICE_URL}/task?user_id=${userId}&user_id=${taskId}"
+
+                val jsonObject = JsonObject()
+                jsonObject.addProperty("notes", notes)
+                jsonObject.addProperty("taskStatus", taskStatus)
+                val body = gson.toJson(jsonObject).toRequestBody(JSON)
+                print("update Task payload = ${jsonObject}")
+
+                val request = Request.Builder()
+                    .url(url)
+                    .addHeader("Authorization", "Bearer ${token}")
+                    .post(body)
+                    .build()
+
+                val response = okHttpClient.newCall(request).execute()
+                if (response.isSuccessful) {
+                    emitter.onSuccess(true)
+                } else {
+                    emitter.onError(Exception("Error"))
+                }
+
+            } catch (e: Exception) {
+                emitter.onError(e)
+            }
+        }
+    }
+
 }

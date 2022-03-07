@@ -7,8 +7,8 @@ import com.example.projecttask.interactor.AppInteractor
 class TaskDetailViewModel constructor(private val app: Application,
                                       private val interactor: AppInteractor
 ) : AndroidViewModel(app)  {
-    fun submit(notes: String, done: Boolean) {
-        interactor.submit(notes, done)
+    fun submit(taskId: String, notes: String, taskStatus: String, completion: ((Boolean) -> Unit)?) {
+        interactor.submit(taskId, notes, taskStatus, completion = completion)
     }
 
 

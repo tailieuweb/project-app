@@ -64,8 +64,20 @@ class AppInteractor @Inject constructor(
             })
     }
 
-    fun submit(notes: String, done: Boolean) {
-        // TODO: Handle post to webservice here
+    fun submit(taskId: String, taskdescription: String, taskStatus: String, completion: ((Boolean) -> Unit)?) {
+        val user = repository.getUser()
+        if (user == null) {
+            return
+        }
+
+        webServiceApi.updateTask(user.userId, user.token, taskId = taskId, notes = taskdescription, taskStatus = taskStatus)
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io())
+            .subscribe({
+                completion?.invoke(it)
+            }, {
+                completion?.invoke(false)
+            })
     }
 
     fun getNotifications(completion: ((List<NotificationModel>) -> Unit)?) {
