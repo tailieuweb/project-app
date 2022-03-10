@@ -58,7 +58,7 @@
     </style>
 
     <style name="ThemeOverlay.App.Button" parent="">
-        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorPrimary">@color/btn_login</item>
         <item name="colorOnPrimary">@color/purple_700</item>
     </style>
 </resources>

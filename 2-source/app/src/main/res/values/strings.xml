@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Project Task</string>
+    <string name="app_name">FIT - Task Management</string>
     <string name="title_home">Hồ sơ của tôi</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Thông báo</string>
