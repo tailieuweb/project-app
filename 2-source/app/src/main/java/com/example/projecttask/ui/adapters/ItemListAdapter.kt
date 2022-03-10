@@ -32,8 +32,8 @@ class ItemListAdapter(private val dataList: List<Any>, val onClick: ((item: Any)
             when (itemData) {
                 is TaskDetail -> {
                     itemBinding.tvTaskNameValue.text = itemData.tasks.task_name
-                    itemBinding.tvTaskStartDateValue.text = itemData.created_at.toString()
-                    itemBinding.tvTaskEndDateValue.text = itemData.updated_at.toString()
+                    itemBinding.tvTaskStartDateValue.text = itemData.tasks.task_start_date
+                    itemBinding.tvTaskEndDateValue.text = itemData.tasks.task_end_date
                     itemBinding.tvTaskStatusValue.text = "Đang tiến hành" // TODO: @nhuan correct here
                 }
             }

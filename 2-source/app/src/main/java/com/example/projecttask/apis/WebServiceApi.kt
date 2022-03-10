@@ -167,7 +167,7 @@ class WebServiceApi @Inject constructor (private val okHttpClient: OkHttpClient,
 
                 val jsonObject = JsonObject()
                 jsonObject.addProperty("notes", notes)
-                jsonObject.addProperty("taskStatus", taskStatus)
+                jsonObject.addProperty("status", taskStatus)
                 val body = gson.toJson(jsonObject).toRequestBody(JSON)
                 print("update Task payload = ${jsonObject}")
 

@@ -15,6 +15,8 @@ data class Task(
     val task_id: Int,
     val task_image: String,
     val task_name: String,
+    val task_start_date: String,
+    val task_end_date: String,
     val task_order: Any,
     val task_overview: String,
     val task_slug: String,
