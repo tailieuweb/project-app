@@ -2,21 +2,25 @@
     <!-- Base application theme. -->
     <style name="Theme.ProjectTask" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryDark">@color/purple_700</item>
+        <item name="colorPrimary">@color/background_main</item>
+        <item name="colorPrimaryDark">@color/background_main</item>
         <item name="colorAccent">@color/teal_200</item>
+        <item name="textAppearanceButton">@style/TextAppearance.App.Button</item>
+        <item name="titleTextColor">@color/btn_login_text</item>
         <!-- Customize your theme here. -->
     </style>
 
     <style name="Theme.App" parent="Theme.MaterialComponents.Light">
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryDark">@color/purple_700</item>
-        <item name="colorAccent">@color/teal_200</item>
+        <item name="colorPrimary">@color/background_main</item>
+        <item name="colorPrimaryDark">@color/background_main</item>
+        <item name="colorAccent">@color/btn_login_text</item>
         <item name="textAppearanceButton">@style/TextAppearance.App.Button</item>
         <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.App.SmallComponent</item>
         <item name="borderlessButtonStyle">@style/Widget.App.Button.TextButton</item>
         <item name="materialButtonOutlinedStyle">@style/Widget.App.Button.OutlinedButton</item>
         <item name="materialButtonStyle">@style/Widget.App.Button</item>
+        <item name="android:navigationBarColor">@color/btn_login_text</item>
+        <item name="titleTextColor">@color/btn_login_text</item>
     </style>
 
     <style name="TextAppearance.App.Body" parent="TextAppearance.MaterialComponents.Body2">
@@ -28,6 +32,8 @@
     <style name="TextAppearance.App.Button" parent="TextAppearance.MaterialComponents.Button">
 <!--        <item name="fontFamily">@font/rubik</item>-->
 <!--        <item name="android:fontFamily">@font/rubik</item>-->
+            <item name="android:color">@color/btn_login_text</item>
+            <item name="android:textColor">@color/btn_login_text</item>
     </style>
 
     <style name="ShapeAppearance.App.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
@@ -54,11 +60,15 @@
     </style>
 
     <style name="ThemeOverlay.App.Button.TextButton" parent="">
-        <item name="colorPrimary">@color/purple_700</item>
+        <item name="colorPrimary">@color/btn_login_text</item>
+    </style>
+
+    <style name="TextAppearance.App.MainButton"  parent="TextAppearance.MaterialComponents.Button">
+        <item name="colorPrimary">@color/btn_login_text</item>
     </style>
 
     <style name="ThemeOverlay.App.Button" parent="">
-        <item name="colorPrimary">@color/btn_login</item>
-        <item name="colorOnPrimary">@color/purple_700</item>
+        <item name="colorPrimary">@color/background_main</item>
+        <item name="colorOnPrimary">@color/background_main</item>
     </style>
 </resources>

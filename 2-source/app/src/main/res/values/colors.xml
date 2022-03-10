@@ -5,6 +5,7 @@
     <color name="btn_login_on_primary">#003b7a</color>
     <color name="background_main">#003b7a</color>
     <color name="btn_login">#003b7a</color>
+    <color name="btn_login_text">#FFFFFFFF</color>
 
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
