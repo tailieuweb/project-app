@@ -1,0 +1,606 @@
+{
+	"info": {
+		"_postman_id": "043abea3-d72c-40f8-959d-6f88addedcf1",
+		"name": "project-task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "server",
+			"item": [
+				{
+					"name": "1-login-OK",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZTQ5ZGFhNGFiMGRlNzcwNmEyMWIwNzhlYTdhYmZkMDZkYzkxYTdhODVlMzM5YThhOGE5YWVkMTY2NDhiZDZmYjUyZWIxYjE5YmMyZTU4ZWYiLCJpYXQiOjE2NDYxMjQzMjMuNDc0MTQ5LCJuYmYiOjE2NDYxMjQzMjMuNDc0MTU0LCJleHAiOjE2Nzc2NjAzMjMuNDI2Njk4LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.gifuIcRCvLvvHifWnGmN5-3faZhO3c0ty8IwzkLoehXvzdCEB_hAIxPbBmKbl5-8ANqqR8OIV0p123zZHZZ-keiCqvnJvUjXzJisHYcUATKzOQEiCf1h4ZxkoPhuXtqcXzcBb7FJGWlEG-T9HAIBTlhsbjo8hdOCW_YKT3x_7UDWBqbucayT0EDOph7K7FIesGwlnI0zwrFA3kLtmhn4k8vP9H2KP86h-hCcb85DAEIReIk2F9venQ8hFzc0uhd4DyoDSOArH5IUvzZ3iWqq1PGHm4qvDC5pwhSuoqUHpAGKgQ05ECyYMd7ZObodTrHOK4GoVhHEyZzsM-Sjpp7BdpblbKwdqRkWVzOF1V7Jgv8JXMceqTwkqCVHVCjDwnrMkAeKMYJDqEcEdaWMjv4IwpmL4IpYhfm9gEHvNMAnYGntPKqsd4wXridazfYCKAUWm-UWNRDOwMwJSRKQLChbCOoQXCoxTcYU_hk-DBQ9buHicOFmkRmZt3aI6fUvhSfzxeIdB0w9mucSB8eTfhGGRpGcCpbK4mUvL1WsvqAKT8BVNV7ZPNWKXT9zORV7LESCoX8qYmiMVyMfeoPHo9nq8755guxtTmsI9McyBls4rdk4hvCRdYxkX6LnlomXSkmrxr3-Tb9pb_0O3dBGIHuxALv5CV2iQpkO-REB3iYvW5o",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://api.tdc.edu.vn/api/login?email=admin@admin.com&password=admin&device_token=fPjOP4GQQCuAQVTF4oRC_R:APA91bGriRCBqHHt6rd_hHLL3Z_kOGKRXHRxi8m77SpnW07J5pLPxh0EgSZGHO9s_Ej6q0c5G9UlzLqwJv8_UCaWbFACAIFUy7PupuH9jYuDnJnEJqIz5enUa9-OwVFHrGStUNU9EkVg",
+							"protocol": "http",
+							"host": [
+								"api",
+								"tdc",
+								"edu",
+								"vn"
+							],
+							"path": [
+								"api",
+								"login"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "admin@admin.com"
+								},
+								{
+									"key": "password",
+									"value": "admin"
+								},
+								{
+									"key": "device_token",
+									"value": "fPjOP4GQQCuAQVTF4oRC_R:APA91bGriRCBqHHt6rd_hHLL3Z_kOGKRXHRxi8m77SpnW07J5pLPxh0EgSZGHO9s_Ej6q0c5G9UlzLqwJv8_UCaWbFACAIFUy7PupuH9jYuDnJnEJqIz5enUa9-OwVFHrGStUNU9EkVg"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2-task-list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYzg4YjQyNmJkMTRiYzlmYWZmMzEwNjU2YWFiZjY3ZDk5NGFkZDhlOTg4ZWRmZDQ3NWRhNzg2ZTY1NjFjMTQyMmJjMjc5NzRkOTMzOTY1YjUiLCJpYXQiOjE2NDY5MDA5MjguNzQ1OTY1LCJuYmYiOjE2NDY5MDA5MjguNzQ1OTcsImV4cCI6MTY3ODQzNjkyOC43MzQyNzQsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.PSFDpixRULSbNZCGemILqRK6vzcMBrLwDOR6uxqAlVAJgG4-SBqPZjLON9fhTlqc6JFt7QJ8VMnB_ZnYczbpzlt7h1LkWDvop8OtT5KmwFpi7129QtvYQe-sVQzBPUJXN5M6pZEhRVkWPYMaT5Mz8ZBTNr23s1-_LF2wV6ecA4Sr0cKoGTCAVSZJWkTCiY034dBFaIIWXcy8SwW5bMHZABev8OpZLQCU9rF5zy2x5f2yukM8UxyI3BYlTDV7mjafPqCdT7NYfQYwlOdUfzaqiz_U4JHWs7oQWcmZOFlFhBAKH1Vpq8Gh2n2kDNAh93m-2l34BtkpvHF5n7jL7F5vNWdupElIf7-z4Z7dH5lMFNnDxyvNDFQWMunJymoYSRMcv9Exkv5Z6DJSPGUfSdMc8MCl0mjx3jGqx9emIygWsQNwTq_BLm5RlcN3x244dS_eOlipVip7Gg4zfKMjUld0-HuSO9s_TcgzZtepGS0VvqQanrFhmqFeJ8d8cbe1AeI2rl2OX1RjXwfj14YEfkIRdjrXtUB9Sxi-bjssvHOLE6laSQoSXz3Q52Jp8_XlsJC5ZhY1KKBfmEPUrIQ9tsH4sKhfACCmkd5km3FcDodsd8WTyoEDw1087eTpwi9Fz-0woUz8q_zN2L5gSCAlvesvQ2KgrR6YAGubbxRbVcmKJ8U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://api.tdc.edu.vn/api/tasks?user_id=1",
+							"protocol": "http",
+							"host": [
+								"api",
+								"tdc",
+								"edu",
+								"vn"
+							],
+							"path": [
+								"api",
+								"tasks"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3-task-detail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYzg0OGVlMzZlNDNiMjg1ZGFhMWIyNzI3NDY3YmFlY2E5NjUyN2JhMjY5ODA1YWNiMWUxNTQ0ZDQxMjQ4MTljNzNhMmU3Yjg3M2U0MWU5NjciLCJpYXQiOjE2NDY5MDE1MDkuNzcxMTAzLCJuYmYiOjE2NDY5MDE1MDkuNzcxMTEsImV4cCI6MTY3ODQzNzUwOS42OTQwNzEsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.g32x2r2nyMFL_wNAih6KkRmhulMCKw3qBD00PhHU_QdsJOVkI7h98Fqn1ZTDZpOM-PSDOkG71beO6Q_Yn2Fi2Gy4VokVqk54q6YF0h54z4N43wpo-846EYdyyGOxppuxbzivjA8eOboM4DYe7zs0LHrG6sV2HOEYK_IriVhIDio0xQ60RpJWMw9ASTUIGEoOrmlZUI8cm0e9RNjHsexvtFncqjE68VG48MXHJXunlM__yLWy7lwclDjLs40HxXH-DSoLk1HNcgTBIBABivjctnuPC6p7GFtzFjPB9nhs5RTej5yCc6cvph3-esQmPmap5S2boZ49OaSPFK9Jij96fYMHlYE-XJqGYaw5lDyvuHirN3rc5DnAsmVEgUQ6pzE1xhyU7fEkrWvd1rSiUeBz9CUVKRCNBMSY7iXFr2faSKS_S_SzprESrah4yWXZk9Ay2eJ8lq3_u8z6jYEBxScT023CH-ZZ7iQfU3j9OY0nwiUphc4nYN_FpFRsD0a6Aj3EW0T3DGZQ1Gt8cWOLu0Vx4FZWHT8xQQ00gtPRBh_U1w5SIlLC5ov4XpzaNigKzGG3qEeZ9gRpS_RCqo9esXUdaGlAfjm2fChvSYOW0-pN-ZKtxQa-1-LXR-hgGdCVLF3e7BNIgyQycmVz1QrpS48hTRXwoPhTCJC0LYFwW6goeBA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://api.tdc.edu.vn/api/task?user_id=1&task_id=1",
+							"protocol": "http",
+							"host": [
+								"api",
+								"tdc",
+								"edu",
+								"vn"
+							],
+							"path": [
+								"api",
+								"task"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "1"
+								},
+								{
+									"key": "task_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4-post-task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYzg0OGVlMzZlNDNiMjg1ZGFhMWIyNzI3NDY3YmFlY2E5NjUyN2JhMjY5ODA1YWNiMWUxNTQ0ZDQxMjQ4MTljNzNhMmU3Yjg3M2U0MWU5NjciLCJpYXQiOjE2NDY5MDE1MDkuNzcxMTAzLCJuYmYiOjE2NDY5MDE1MDkuNzcxMTEsImV4cCI6MTY3ODQzNzUwOS42OTQwNzEsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.g32x2r2nyMFL_wNAih6KkRmhulMCKw3qBD00PhHU_QdsJOVkI7h98Fqn1ZTDZpOM-PSDOkG71beO6Q_Yn2Fi2Gy4VokVqk54q6YF0h54z4N43wpo-846EYdyyGOxppuxbzivjA8eOboM4DYe7zs0LHrG6sV2HOEYK_IriVhIDio0xQ60RpJWMw9ASTUIGEoOrmlZUI8cm0e9RNjHsexvtFncqjE68VG48MXHJXunlM__yLWy7lwclDjLs40HxXH-DSoLk1HNcgTBIBABivjctnuPC6p7GFtzFjPB9nhs5RTej5yCc6cvph3-esQmPmap5S2boZ49OaSPFK9Jij96fYMHlYE-XJqGYaw5lDyvuHirN3rc5DnAsmVEgUQ6pzE1xhyU7fEkrWvd1rSiUeBz9CUVKRCNBMSY7iXFr2faSKS_S_SzprESrah4yWXZk9Ay2eJ8lq3_u8z6jYEBxScT023CH-ZZ7iQfU3j9OY0nwiUphc4nYN_FpFRsD0a6Aj3EW0T3DGZQ1Gt8cWOLu0Vx4FZWHT8xQQ00gtPRBh_U1w5SIlLC5ov4XpzaNigKzGG3qEeZ9gRpS_RCqo9esXUdaGlAfjm2fChvSYOW0-pN-ZKtxQa-1-LXR-hgGdCVLF3e7BNIgyQycmVz1QrpS48hTRXwoPhTCJC0LYFwW6goeBA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://api.tdc.edu.vn/api/task?user_id=4&task_id=1&status=1&notes=11",
+							"protocol": "http",
+							"host": [
+								"api",
+								"tdc",
+								"edu",
+								"vn"
+							],
+							"path": [
+								"api",
+								"task"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "4"
+								},
+								{
+									"key": "task_id",
+									"value": "1"
+								},
+								{
+									"key": "status",
+									"value": "1"
+								},
+								{
+									"key": "notes",
+									"value": "11"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "local",
+			"item": [
+				{
+					"name": "1-login-OK",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZTQ5ZGFhNGFiMGRlNzcwNmEyMWIwNzhlYTdhYmZkMDZkYzkxYTdhODVlMzM5YThhOGE5YWVkMTY2NDhiZDZmYjUyZWIxYjE5YmMyZTU4ZWYiLCJpYXQiOjE2NDYxMjQzMjMuNDc0MTQ5LCJuYmYiOjE2NDYxMjQzMjMuNDc0MTU0LCJleHAiOjE2Nzc2NjAzMjMuNDI2Njk4LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.gifuIcRCvLvvHifWnGmN5-3faZhO3c0ty8IwzkLoehXvzdCEB_hAIxPbBmKbl5-8ANqqR8OIV0p123zZHZZ-keiCqvnJvUjXzJisHYcUATKzOQEiCf1h4ZxkoPhuXtqcXzcBb7FJGWlEG-T9HAIBTlhsbjo8hdOCW_YKT3x_7UDWBqbucayT0EDOph7K7FIesGwlnI0zwrFA3kLtmhn4k8vP9H2KP86h-hCcb85DAEIReIk2F9venQ8hFzc0uhd4DyoDSOArH5IUvzZ3iWqq1PGHm4qvDC5pwhSuoqUHpAGKgQ05ECyYMd7ZObodTrHOK4GoVhHEyZzsM-Sjpp7BdpblbKwdqRkWVzOF1V7Jgv8JXMceqTwkqCVHVCjDwnrMkAeKMYJDqEcEdaWMjv4IwpmL4IpYhfm9gEHvNMAnYGntPKqsd4wXridazfYCKAUWm-UWNRDOwMwJSRKQLChbCOoQXCoxTcYU_hk-DBQ9buHicOFmkRmZt3aI6fUvhSfzxeIdB0w9mucSB8eTfhGGRpGcCpbK4mUvL1WsvqAKT8BVNV7ZPNWKXT9zORV7LESCoX8qYmiMVyMfeoPHo9nq8755guxtTmsI9McyBls4rdk4hvCRdYxkX6LnlomXSkmrxr3-Tb9pb_0O3dBGIHuxALv5CV2iQpkO-REB3iYvW5o",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/login?email=admin@admin.com&password=admin&device_token=eWZwPl9RSH-Ao7oGyx38-4:APA91bGTH0xn1pv7Q5GubUXLikfyApZBm73ET0hRZx-4Oi94izVbKJp                                                                                                             ZBJvEKbXW2BCqDUYXXIV1EBtAlPkXmHNLhj6YZ8rqNZT5h6oAQ2CNRmGbcIk7ALG3zcEhRE1OlpbAAAS",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"login"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "admin@admin.com"
+								},
+								{
+									"key": "password",
+									"value": "admin"
+								},
+								{
+									"key": "device_token",
+									"value": "eWZwPl9RSH-Ao7oGyx38-4:APA91bGTH0xn1pv7Q5GubUXLikfyApZBm73ET0hRZx-4Oi94izVbKJp                                                                                                             ZBJvEKbXW2BCqDUYXXIV1EBtAlPkXmHNLhj6YZ8rqNZT5h6oAQ2CNRmGbcIk7ALG3zcEhRE1OlpbAAAS"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2-task-list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMThkMDVmYTQyOGY5ZmJiNTA2MTNlZDIwZjg1ZmZmNzczNTY3OGM0YmNiOGY0MjI2MzNjZjRhZTAzM2EzNmU1M2YwZjllYzI0YjMwYTA3NjIiLCJpYXQiOjE2NDY5MDE2NDQuNDQ0MzcyLCJuYmYiOjE2NDY5MDE2NDQuNDQ0MzgsImV4cCI6MTY3ODQzNzY0NC40MzIwNjYsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.cTEMmz5Hzok-aFEnoBjMbSqahJAD06g4x2gr5EyH85nVSJWM4P7HRre_eT0tOcSvlJr8HKnPbRSckI5TWTvXK6BgLqb2jWEvwDQgqpfNijMWRGySjMHtON6xIAPO593RoMEH92kL-d4Pbdu_yzMNNwGZYAahIhfj7A5VAwIa6dDjvaJop7dLU8PUaQlLMNgV71RWcHt2xL_pcOySuJUgd_uGvCPg23fzZHmF7iti3xZBPgA272-HLw0x-xcEoTR8cjEHnvyL-aHl8WoUP6cm1Aux_wMTjerMvaru6nOYM810cmj75YpYgKHIkXymqn0qHaEvQmNQugFzLGVYzzMEnGkfZr8zU1n5WD7TvuoUmWZ0PrvHuNVAaz6l5pTRstI79H_kazP4d4gqOJHPMMqId0gMSwT1L1WFrViO4o_AOzpwrAxJyJWVHMlgMLyUP87pDswg0SlhDm-tczeTnjn53Cz8oeqcW-Upmp3Jnbz4yhvPux-ydB6Z_NQ82CUyiSfvD_JncZqK-YOIXwmM2RW9ByRZfduo_KWP2_9UG7qKNNXCIsZmXPoKraFSwsaja3pTaoXriC6_rMh5rjARwAR5orH2_3JzHtJ3Cvw7P_kM_e36rmebjnx45FdjTAYKUTfyjwE1WO9tt4-CcBXSm3_gjagLzD5xg13gXoNHjO9qKl8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/tasks?user_id=1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tasks"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3-task-detail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYjUzNTIxNmY3OTc5YjM0N2Y4ZjEyZjFjNzk2YTU2OTViY2ZjNTBhMTkyMmM4ZjllMzZmNGFmMTAwNzRlYTc0Y2E1YmI2NGU5OThjODhlMzEiLCJpYXQiOjE2NDY5MTQ0NzUuNDM5OTMxLCJuYmYiOjE2NDY5MTQ0NzUuNDM5OTQxLCJleHAiOjE2Nzg0NTA0NzUuMzU5NzEsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.Ip-SNlWF_k-eazmMKNh338MlSrOhbcG6p_Q8soCoTw0Fy88J4t5-ioQRAR5zAAsgv8YKJwC7fSc9YYT0nZyHrU4vndNzix49rnpoMCE77gTjgV1m4rI1IA2H7FfcYbLLS0Drc-IxBqpoKf4A0AC5evLcaknlgZ4OohXIZnmb5caqQWpUsBIRvz7mhl_OmgcsfB91GP-6KhQoXF5oDb7OYhgrbXVzdNih-KEWOnYIRLy3xT_wDKg-ncRwnUSUxSzMtSzUzCpd6Pn5z0zGuy1560Sw3fswKTOkb3Et1C-PWLTBqSh6DogrnMMHa8Q0tlc_U_wDyUrbggqh5QDHAS1vaWIrqQeQa76tD9_KBn4wmNcUv1kCFrk-DBOMvAJMu7D3-MFAK-SRodm2mSO0tvde32ZdnYtVnNozD9DbBAV73mGBVkzdH-GpO0_oU8tx_gZN8N4NPI1yfHKVxtEoGr2Ku4ygEn6Kh-RBYjphRpTyGQuybW6vq5LiBSUHZF-v88zKUZ__UU_v9yLLdL2h5DxZVxEVL8ZoALPLmI9aYurelMhQtCt9hmKt6LvptiE-g2LzpQ6OoLJdSfq5-yP_Nnw1pK5kPdHnfcSpjlp4ZYe9Zu8EbyseOL44TAEtGr3xRUyKPFAGKVhR1zRyuAD9N85m_gSpRzY6bHmHQxXxhXj8EME",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/task?user_id=1&task_id=1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"task"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "1"
+								},
+								{
+									"key": "task_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4-post-task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiM2M1MGZkNjA1Mzk1NGYwYjM0ZTdkMjNmOTcwNGNmM2ViOTEyMTg0MzIwODhhZTkwYzEwYzJjOWFiZDE0N2Q0YWE4YWEzN2ExMGY0ZjEzY2IiLCJpYXQiOjE2NDY5MzI4ODEuNjE5NzM2LCJuYmYiOjE2NDY5MzI4ODEuNjE5NzUzLCJleHAiOjE2Nzg0Njg4ODEuNTE1MjUsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.cem0rH_dPhT4J-9VEQhv-xQhOG_HrMFnuY4UgghxzHaRv3hKhLugC5aHorBbCemP37BRiPRxTGvPgvWs2moB9PtDQUFiqEx8sKmm4jT6y5azyKDh70VTBcVGOwhMLrSsswXUxREDaFMtMKMQwraKiO2akO3q57z9JbMXVMLOd-SxZ8HaijlQ6r0PpVaAoIXUTSWlNNt1tfyJ1gLdCfQCvK5x9hY8aUXRbyY_VgynaXT9wqPheoT-FQP6AQCAq6XvdIOPtPPSdD_SSnX8reXYE2FXuo7j7xIqe0FqCGoLLbq9YGJHTIZsjfw1xZZWwVvFQtrx9AApulRilztDb5WJ5YMllTsOaQDVwT50pcj-zeXyW_0oYu9V35AnqP-NSHPoAGWItOUcGO2JLfGDGG8K6TJz800gxANZH0Uuj0yAt_KPUjw7Ib3VDWbnJ9GtVL7Q5EK4SoBIgNQ4WWmTm-wGVA-ElUjbpQsmv2zRNy_XhdXndcvu-0ByJ6el3egakIeNW4IUvLKtIQ3V-rsW82G24r7sTmXdRnY21P2eMQwRG7DmQsJp_M1nrcDdnyk2_nijNH7d_MYB_6QXwZTaDMwfp8ehDhKM5eA7YSdfNFtXfMWdNBNDmsVeRQAnhQ9ONKeHgXIvnEt_h_leZ5rpo_ZN-9OIjF6RhwxshTs8Ho_OmqQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/task?user_id=1&task_id=1&status=1&notes=11",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"task"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "1"
+								},
+								{
+									"key": "task_id",
+									"value": "1"
+								},
+								{
+									"key": "status",
+									"value": "1"
+								},
+								{
+									"key": "notes",
+									"value": "11"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "https://fcm.googleapis.com/v1/projects/myproject-b5ae1/messages:send",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "AIzaSyBBsbNkKwpjEw_A5HUt4p77fbwB3DJZuFE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "AIzaSyBBsbNkKwpjEw_A5HUt4p77fbwB3DJZuFE",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"message\":{\n   \"notification\":{\n     \"title\":\"FCM Message\",\n     \"body\":\"This is an FCM Message\"\n   },\n   \"token\":\"dlE8UD2bTDeDERsjrKaHH5:APA91bENYXsL1JvP-oriZJhne8oMjgki6wTL3SbW1L0RYBcYKlF7lESXmK2oip-UfLD7lRxVFa8by5ygXs2LngQGg2TB69aD5kiNrbbtl5JWS3B7b6Uk4CYUvOeSJXbLv0kwiscDP6i4\"\n}}"
+						},
+						"url": {
+							"raw": "https://fcm.googleapis.com/v1/projects/myproject-b5ae1/messages:send",
+							"protocol": "https",
+							"host": [
+								"fcm",
+								"googleapis",
+								"com"
+							],
+							"path": [
+								"v1",
+								"projects",
+								"myproject-b5ae1",
+								"messages:send"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://fcm.googleapis.com/v1/projects/myproject-b5ae1/messages:send",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "AIzaSyBBsbNkKwpjEw_A5HUt4p77fbwB3DJZuFE"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"message\":{\n   \"notification\":{\n     \"title\":\"FCM Message\",\n     \"body\":\"This is an FCM Message\"\n   },\n   \"token\":\"dlE8UD2bTDeDERsjrKaHH5:APA91bENYXsL1JvP-oriZJhne8oMjgki6wTL3SbW1L0RYBcYKlF7lESXmK2oip-UfLD7lRxVFa8by5ygXs2LngQGg2TB69aD5kiNrbbtl5JWS3B7b6Uk4CYUvOeSJXbLv0kwiscDP6i4\"\n}}"
+						},
+						"url": {
+							"raw": "https://fcm.googleapis.com/v1/projects/myproject-b5ae1/messages:send",
+							"protocol": "https",
+							"host": [
+								"fcm",
+								"googleapis",
+								"com"
+							],
+							"path": [
+								"v1",
+								"projects",
+								"myproject-b5ae1",
+								"messages:send"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://fcm.googleapis.com/fcm/send",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "AIzaSyBBsbNkKwpjEw_A5HUt4p77fbwB3DJZuFE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+								"key": "Authorization",
+								"value": "AAAA_07p2p8:APA91bEGHg4nc9I1I2WjHWx9EAK4vw3u6pbx_hgKfXuyY9P5s3T8NPBGK3MIxiZmz3Jr_r_KwTsKELSDro-sxT4BGkfphHZwpiURcSAvI2_nngbRyIPohQt6SAZiwiq0381l02T9lqCV"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "{\"to\":\"dlE8UD2bTDeDERsjrKaHH5:APA91bENYXsL1JvP-oriZJhne8oMjgki6wTL3SbW1L0RYBcYKlF7lESXmK2oip-UfLD7lRxVFa8by5ygXs2LngQGg2TB69aD5kiNrbbtl5JWS3B7b6Uk4CYUvOeSJXbLv0kwiscDP6i4\",\"notification\":{\"title\":\"Hello\",\"body\":\"Yellow\"}}",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://fcm.googleapis.com/fcm/send",
+							"protocol": "https",
+							"host": [
+								"fcm",
+								"googleapis",
+								"com"
+							],
+							"path": [
+								"fcm",
+								"send"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
