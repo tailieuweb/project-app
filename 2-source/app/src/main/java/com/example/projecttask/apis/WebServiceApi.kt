@@ -26,26 +26,34 @@ class WebServiceApi @Inject constructor (private val okHttpClient: OkHttpClient,
         val email: String,
         val user_name: String
         )
+
+    //User logged
+    //User info is saved
     data class LoginData(
         val token: String,
         val user: UserData
     )
 
-    //Task info
+    //Task info: using at: DetailData
     @Deprecated("No longer needed. Use `Task` instead.")
     data class TaskInfo (
         val task_id: String,
         val task_name: String,
         val task_overview: String,
-        val task_description: String
+        val task_description: String,
+        val task_end_date: String,
+        val task_start_date: String
     )
 
     //[{"id":1,"name":1,"description":""},{"id":2,"name":2,"description":""},{"id":3,"name":3,"description":""}]
+    // Assigned tasks to user
+    // Not used
     @Deprecated("No longer needed. Use `TaskDetail` instead!")
     data class ListData(
         val id: String,
         val notes: String,
-        val task: TaskInfo
+        val status: Int,
+        val tasks: TaskInfo
 
     )
 
@@ -53,7 +61,8 @@ class WebServiceApi @Inject constructor (private val okHttpClient: OkHttpClient,
     data class DetailData(
         val id: String,
         val notes: String,
-        val taskInfo: TaskInfo
+        val status: Int,
+        val tasks: TaskInfo
     )
 
 
@@ -133,21 +142,23 @@ class WebServiceApi @Inject constructor (private val okHttpClient: OkHttpClient,
     }
 
     /**
-     * Display task info
+     * Display task info: task name, overview, description, start date, end date, notes, status
+     * Submit info: notes, status(select box)     *
      */
-    fun getDetail(user_id: String, task_id: String): Single<DetailData> {
+    fun getDetail(user_id: String, task_id: String, token: String): Single<TaskDetail> {
         return Single.create { emitter ->
             try {
-                val url = "${BuildConfig.BASE_SERVICE_URL}/task?user_id=${user_id}&user_id=${task_id}"
+                val url = "${BuildConfig.BASE_SERVICE_URL}/task?user_id=${user_id}&task_id=${task_id}"
 
                 val request = Request.Builder()
                     .url(url)
+                    .addHeader("Authorization", "Bearer ${token}")
                     .get() // TODO: replace get = post with body
                     .build()
 
                 val response = okHttpClient.newCall(request).execute()
                 if (response.isSuccessful) {
-                    val detail = gson.fromJson(response.body?.string(), DetailData::class.java)
+                    val detail = gson.fromJson(response.body?.string(), TaskDetail::class.java)
 
                     emitter.onSuccess(detail)
                 } else {
@@ -160,6 +171,10 @@ class WebServiceApi @Inject constructor (private val okHttpClient: OkHttpClient,
         }
     }
 
+    /**
+     * Update task info by assigned user
+     * Update info: notes, status
+     */
     fun updateTask(userId: String, token: String, taskId: String, notes: String, taskStatus: String): Single<Boolean> {
         return Single.create { emitter ->
             try {

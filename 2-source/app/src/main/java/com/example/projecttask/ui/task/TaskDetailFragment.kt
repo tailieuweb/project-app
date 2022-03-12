@@ -10,6 +10,7 @@ import android.widget.Toast
 import com.example.projecttask.R
 import com.example.projecttask.databinding.FragmentTaskDetailBinding
 import com.example.projecttask.ui.BaseFragment
+import com.example.projecttask.ui.adapters.ItemListAdapter
 
 class TaskDetailFragment : BaseFragment() {
 
@@ -37,6 +38,20 @@ class TaskDetailFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val taskId = requireArguments().getString("id") ?: ""
+        /**
+         *
+         */
+        viewModel.getDetail(taskId)
+        viewModel.liveData.observe(viewLifecycleOwner) {
+            binding.tvStartDate.text = it.tasks.task_start_date
+            binding.tvEndDate.text = it.tasks.task_end_date
+            binding.tvTaskTitle.text = it.tasks.task_name
+            
+            binding.taskDescriptionInputTextLayout.editText?.setText(it.notes)
+        }
+        /*
+        *
+         */
         Toast.makeText(requireContext(), "Display task details = ${taskId}", Toast.LENGTH_LONG).show()
 
         val taskValues = resources.getStringArray(R.array.taskValues)

@@ -15,10 +15,14 @@
     <string name="taskEndDate">Ngày kết thúc</string>
     <string name="titleLogin">Đăng nhập</string>
     <string name="taskDescription">Mô tả công việc</string>
+    <string name="tvTaskTitle">Tiêu đề công  việc</string>
 
     <string-array name="taskValues">
-        <item>Chưa xong</item>
-        <item>Đã xong</item>
-        <item>Huỷ</item>
+        <item>Assigned</item>
+        <item>Canceled</item>
+        <item>Done</item>
+        <item>Declined</item>
+        <item>In progress</item>
+        <item>Peding</item>
     </string-array>
 </resources>

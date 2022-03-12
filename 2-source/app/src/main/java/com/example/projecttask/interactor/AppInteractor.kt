@@ -52,8 +52,13 @@ class AppInteractor @Inject constructor(
             })
     }
 
-    fun getDetail(user_id: String,task_id: String, completion: ((WebServiceApi.DetailData?) -> Unit)?) {
-        webServiceApi.getDetail(user_id, task_id)
+    fun getDetail(task_id: String, completion: ((TaskDetail?) -> Unit)?) {
+        val user = repository.getUser()
+        if (user == null) {
+
+            return
+        }
+        webServiceApi.getDetail(user.userId, task_id, user.token)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
             .subscribe({

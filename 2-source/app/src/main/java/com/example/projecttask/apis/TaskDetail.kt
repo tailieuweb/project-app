@@ -6,7 +6,7 @@ data class TaskDetail(
     val created_user_id: Any,
     val deleted_at: Any,
     val id: Int,
-    val notes: Any,
+    val notes: String,
     val sequence: Any,
     val status: Any,
     val tasks: Task,

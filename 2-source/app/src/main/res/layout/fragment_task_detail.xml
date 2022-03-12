@@ -54,6 +54,28 @@
             android:padding="@dimen/marginDefault">
 
             <TextView
+                android:id="@+id/textView20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/tvTaskTitle" />
+
+            <TextView
+                android:id="@+id/tvTaskTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="date"
+                android:text="15/02/2022" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/marginDefault">
+
+            <TextView
                 android:id="@+id/textView13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -138,7 +160,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="24dp"
-            android:text="Xác nhận công việc" />
+            android:text="Xác nhận công việc"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 
 
